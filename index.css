@@ -34,6 +34,7 @@ body {
     position: relative;
     z-index: 2;
     padding: 5rem 0;
+    margin-top: -40px;
 }
 
 h1 {
@@ -44,11 +45,8 @@ h1 {
     animation: fadeInDown 1s ease-out;
 }
 
-.highlight {
-    color: #fff;
-    background: linear-gradient(120deg, var(--secondary-color) 0%, #4a90e2 100%);
-    padding: 0 0.5rem;
-    border-radius: 4px;
+.yellow-text {
+    color: #FFD700;
 }
 
 .feature-list {
@@ -75,13 +73,34 @@ h1 {
     font-weight: bold;
 }
 
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
 .btn-custom {
-    padding: 0.8rem 2rem;
+    padding: 1rem 2rem;
     border-radius: 50px;
     font-weight: 600;
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
+    white-space: nowrap;
+    text-align: center;
+    min-width: 200px;
+}
+
+.btn-download {
+    background: #fff;
+    color: var(--primary-color);
+    border: none;
+}
+
+.btn-technical {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: 2px solid #fff;
 }
 
 .btn-custom:hover {
@@ -89,15 +108,11 @@ h1 {
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.btn-primary {
-    background: var(--primary-color);
-    border: none;
-}
-
 .app-preview {
     position: relative;
-    max-width: 380px;
-    margin: 0 auto;
+    max-width: 330px;
+    margin-left: auto; /* Alinea el carrusel a la derecha */
+    margin-right: 0;
     animation: fadeInRight 1s ease-out;
 }
 
@@ -111,8 +126,29 @@ h1 {
 .partner-logo {
     max-width: 180px;
     margin-top: 2rem;
-    filter: brightness(0) invert(1);
     opacity: 0.9;
+}
+
+/* Media Queries mejorados */
+@media (max-width: 1200px) {
+    .app-preview {
+        max-width: 340px;
+    }
+}
+
+@media (max-width: 991px) {
+    .app-preview {
+        margin: 3rem auto 0;
+    }
+    
+    .button-group {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn-custom {
+        min-width: 180px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -133,8 +169,33 @@ h1 {
     }
 
     .app-preview {
-        margin-top: 3rem;
         max-width: 300px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-custom {
+        width: 100%;
+        max-width: 250px;
+        margin: 0.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .btn-custom {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .app-preview {
+        max-width: 260px;
     }
 }
 
@@ -149,4 +210,8 @@ h1 {
 
 .carousel-item.active img {
     transform: scale(1.02);
+}
+
+#downloadButton {
+    display: none;
 }
